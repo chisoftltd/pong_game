@@ -1,16 +1,28 @@
-# This is a sample Python script.
+from turtle import Screen, Turtle
+from paddle import Paddle
+from ball import Ball
+from score import Score
+import time
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Set screen environment
+screen = Screen()
+screen.bgcolor("black")
+screen.setup(width=800, height=600)
+screen.title("PongGame")
+screen.tracer(0)
+
+# Declare objects for left and right paddles
+r_paddle = Paddle(350, 0)
+l_paddle = Paddle(-350, 0)
+ball = Ball()
+score = Score()
+
+#Setup key listen
+screen.listen()
+screen.onkey(r_paddle.go_up, "Up")
+screen.onkey(r_paddle.go_down, "Down")
+screen.onkey(l_paddle.gp_up, "w")
+screen.onkey(l_paddle.gp_down, "s")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+game_is_on = True
